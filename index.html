@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academia de Cross Sell — Apostila do Participante</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1A2B3A;
+  --orange: #D95F2B;
+  --gray: #6B7585;
+  --light: #F4F6F8;
+  --mid: #CBD3DA;
+  --white: #FFFFFF;
+  --green: #145A32;
+  --red: #922B21;
+  --purple: #5B2C6F;
+  --teal: #1A5276;
+  --brown: #6E2C00;
+  --gold: #7D6608;
+  /* BU colors */
+  --bu-lideranca: #1A3A5C;
+  --bu-cultura: #5C3A00;
+  --bu-vendas: #145A32;
+  --bu-dh: #5B2C6F;
+  --bu-equipes: #1A5276;
+  --bu-coach: #7D3C00;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--light);
+  color: var(--navy);
+  min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── HEADER ─────────────────────────────── */
+.site-header {
+  background: var(--navy);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 3px solid var(--orange);
+}
+.site-header .badge {
+  background: var(--orange);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: .5px;
+  white-space: nowrap;
+}
+.site-header h1 { color: #fff; font-size: 16px; font-weight: 700; }
+.site-header p  { color: var(--mid); font-size: 12px; }
+
+/* ── TABS ────────────────────────────────── */
+.tab-nav {
+  background: var(--white);
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 2px solid var(--light);
+  padding: 0 8px;
+  gap: 2px;
+  scrollbar-width: none;
+}
+.tab-nav::-webkit-scrollbar { display: none; }
+.tab-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray);
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all .15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tab-btn:hover { color: var(--navy); }
+.tab-btn.active { color: var(--orange); border-bottom-color: var(--orange); }
+.tab-btn .num {
+  background: var(--light);
+  color: var(--gray);
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.tab-btn.active .num { background: var(--orange); color: #fff; }
+
+/* ── PANELS ──────────────────────────────── */
+.tab-panel { display: none; padding: 24px; max-width: 960px; margin: 0 auto; }
+.tab-panel.active { display: block; }
+
+/* ── SECTION HEADER ─────────────────────── */
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.section-icon {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.section-header h2 { font-size: 20px; font-weight: 700; color: var(--navy); }
+.section-header p  { font-size: 12px; color: var(--gray); margin-top: 2px; }
+
+/* ── CARD GRID ───────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media (max-width: 700px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* ── CARD ────────────────────────────────── */
+.card {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #E2E8EE;
+}
+.card-header {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 8px;
+  color: var(--gray);
+}
+.card h3 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.card p  { font-size: 12.5px; color: var(--gray); line-height: 1.5; }
+
+.card.accent-left {
+  border-left: 4px solid var(--orange);
+}
+.card.accent-top {
+  border-top: 4px solid var(--orange);
+}
+
+/* ── BIG HIGHLIGHT ───────────────────────── */
+.highlight-box {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+.highlight-box .label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--orange);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.highlight-box p { font-size: 15px; font-weight: 600; line-height: 1.4; }
+
+/* ── PILL / TAG ──────────────────────────── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.pill.orange { background: #FEE9DF; color: #A0421A; }
+.pill.navy   { background: #DDE4EA; color: var(--navy); }
+.pill.green  { background: #D5EFDE; color: var(--green); }
+.pill.red    { background: #FADBD8; color: var(--red); }
+.pill.purple { background: #E8DAEF; color: var(--purple); }
+.pill.gray   { background: var(--light); color: var(--gray); }
+
+/* ── BULLET LIST ─────────────────────────── */
+.bullet-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--navy);
+  line-height: 1.4;
+}
+.bullet-list li::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+/* ── STEP FLOW ───────────────────────────── */
+.step-flow { display: flex; gap: 0; flex-wrap: wrap; }
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 140px;
+}
+.step-num {
+  width: 32px; height: 32px;
+  background: var(--orange);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.step-arrow { color: var(--mid); font-size: 16px; flex-shrink: 0; }
+.step-label { font-size: 12px; font-weight: 600; color: var(--navy); }
+.step-sub   { font-size: 11px; color: var(--gray); }
+
+/* ── FUNNEL ──────────────────────────────── */
+.funnel { display: flex; flex-direction: column; gap: 3px; align-items: center; }
+.funnel-step {
+  background: var(--light);
+  border-radius: 4px;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
+  transition: background .2s;
+  position: relative;
+}
+.funnel-step.highlight { background: var(--orange); color: #fff; }
+.funnel-step small { display: block; font-size: 10px; font-weight: 400; opacity: .7; margin-top: 1px; }
+.funnel-arrow { color: var(--mid); font-size: 12px; text-align: center; }
+.funnel-day { font-size: 10px; color: var(--gray); text-align: right; margin-left: 8px; }
+
+/* ── DIVIDER ─────────────────────────────── */
+.divider {
+  height: 1px;
+  background: #E2E8EE;
+  margin: 20px 0;
+}
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  margin-bottom: 12px;
+}
+
+/* ── ACCORDION (BU pain map) ─────────────── */
+.accordion { display: flex; flex-direction: column; gap: 8px; }
+.acc-item { border-radius: 8px; overflow: hidden; border: 1px solid #E2E8EE; }
+.acc-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity .15s;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+}
+.acc-header:hover { opacity: .9; }
+.acc-chevron { margin-left: auto; font-size: 12px; transition: transform .2s; }
+.acc-item.open .acc-chevron { transform: rotate(180deg); }
+.acc-body { display: none; padding: 16px; background: var(--white); }
+.acc-item.open .acc-body { display: block; }
+
+/* BU header colors */
+.bu-lideranca .acc-header { background: var(--bu-lideranca); }
+.bu-cultura   .acc-header { background: var(--bu-cultura); }
+.bu-vendas    .acc-header { background: var(--bu-vendas); }
+.bu-dh        .acc-header { background: var(--bu-dh); }
+.bu-equipes   .acc-header { background: var(--bu-equipes); }
+.bu-coach     .acc-header { background: var(--bu-coach); }
+
+.dor-group { margin-bottom: 14px; }
+.dor-group:last-child { margin-bottom: 0; }
+.dor-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dor-name::before {
+  content: '⚠';
+  font-size: 11px;
+}
+.symptom-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 14px;
+}
+.symptom-list li {
+  font-size: 11.5px;
+  color: var(--gray);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.4;
+}
+.symptom-list li::before {
+  content: '→';
+  color: var(--orange);
+  font-size: 10px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── MATRIX TABLE ────────────────────────── */
+.matrix {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.matrix th {
+  background: var(--navy);
+  color: #fff;
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+}
+.matrix td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #E2E8EE;
+  vertical-align: top;
+}
+.matrix tr:nth-child(even) td { background: var(--light); }
+.matrix .bu-tag {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  margin-right: 4px;
+  margin-bottom: 2px;
+}
+.matrix .question { color: var(--orange); font-style: italic; font-size: 11px; display: block; margin-top: 3px; }
+
+/* ── TRIGGER CHIPS ───────────────────────── */
+.trigger-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.trigger-chip {
+  background: var(--white);
+  border: 1px solid #E2E8EE;
+  border-left: 3px solid var(--orange);
+  border-radius: 6px;
+  padding: 8px 12px;
+  min-width: 200px;
+  flex: 1;
+}
+.trigger-chip .icon { font-size: 18px; margin-bottom: 4px; display: block; }
+.trigger-chip strong { font-size: 12px; color: var(--navy); display: block; margin-bottom: 2px; }
+.trigger-chip span { font-size: 11px; color: var(--gray); }
+
+/* ── INTERLOCUTOR CARDS ──────────────────── */
+.interlocutor-card {
+  background: var(--white);
+  border-radius: 8px;
+  border: 1px solid #E2E8EE;
+  overflow: hidden;
+}
+.interlocutor-card .ic-header {
+  background: var(--navy);
+  color: #fff;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.interlocutor-card .ic-header span { font-size: 20px; }
+.interlocutor-card .ic-header strong { font-size: 13px; font-weight: 700; }
+.interlocutor-card .ic-body { padding: 12px 14px; }
+.interlocutor-card .ic-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gray);
+  letter-spacing: .5px;
+  margin-bottom: 4px;
+  margin-top: 8px;
+}
+.interlocutor-card .ic-label:first-child { margin-top: 0; }
+.interlocutor-card .ic-body p { font-size: 12px; color: var(--navy); }
+
+/* ── QUESTION CARD ───────────────────────── */
+.question-block {
+  background: var(--white);
+  border-radius: 8px;
+  border: 1px solid #E2E8EE;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.question-block .qb-header {
+  background: var(--light);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.question-block .qb-title { font-size: 12px; font-weight: 700; color: var(--navy); }
+.question-block .qb-body { padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.question-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  background: var(--light);
+  border-radius: 6px;
+}
+.question-item .q-num {
+  background: var(--orange);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.question-item .q-text { font-size: 12.5px; color: var(--navy); line-height: 1.4; }
+.question-item .q-when { font-size: 11px; color: var(--gray); margin-top: 2px; }
+
+/* ── SIGNAL CARDS ────────────────────────── */
+.signal-card {
+  border-radius: 8px;
+  border: 1px solid #E2E8EE;
+  overflow: hidden;
+}
+.signal-card .sc-header {
+  padding: 10px 14px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.signal-card.cross .sc-header { background: var(--teal); }
+.signal-card.up   .sc-header { background: var(--green); }
+.signal-card .sc-def { padding: 10px 14px; background: var(--white); font-size: 12px; color: var(--gray); border-bottom: 1px solid #E2E8EE; }
+.signal-card .sc-body { padding: 10px 14px; background: var(--white); }
+.signal-card .signal-item {
+  display: flex; gap: 8px; margin-bottom: 6px; font-size: 12px; color: var(--navy); align-items: flex-start;
+}
+.signal-card .signal-item:last-child { margin-bottom: 0; }
+.signal-card .signal-item::before { content: '"'; color: var(--gray); font-size: 16px; line-height: 1; flex-shrink: 0; }
+
+/* ── CHECKLIST ───────────────────────────── */
+.checklist { display: flex; flex-direction: column; gap: 6px; }
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--white);
+  border: 1px solid #E2E8EE;
+  border-radius: 6px;
+  font-size: 12.5px;
+  color: var(--navy);
+}
+.check-box {
+  width: 16px; height: 16px;
+  border: 2px solid var(--mid);
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.check-sub { font-size: 11px; color: var(--gray); display: block; margin-top: 1px; }
+
+/* ── PROCESS STEPS ───────────────────────── */
+.process { display: flex; flex-direction: column; gap: 0; }
+.process-step {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  position: relative;
+}
+.process-step::after {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 44px;
+  bottom: -14px;
+  width: 2px;
+  background: var(--mid);
+}
+.process-step:last-child::after { display: none; }
+.process-num {
+  width: 32px; height: 32px;
+  background: var(--orange);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.process-content h4 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.process-content p  { font-size: 12px; color: var(--gray); line-height: 1.5; }
+
+/* ── REF RÁPIDA ──────────────────────────── */
+.quick-ref-block {
+  background: var(--white);
+  border: 1px solid #E2E8EE;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.quick-ref-block .qr-header {
+  background: var(--navy);
+  color: #fff;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.quick-ref-block .qr-body { padding: 12px 14px; }
+.quick-ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+.quick-ref-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--light);
+  vertical-align: top;
+}
+.quick-ref-table td:first-child { font-weight: 600; color: var(--navy); width: 30%; }
+.quick-ref-table td:last-child  { color: var(--gray); }
+.quick-ref-table tr:last-child td { border-bottom: none; }
+
+/* ── TIMING BAR ──────────────────────────── */
+.timing-bar { display: flex; gap: 0; border-radius: 6px; overflow: hidden; border: 1px solid #E2E8EE; }
+.timing-phase {
+  flex: 1;
+  padding: 10px 8px;
+  text-align: center;
+  border-right: 1px solid #E2E8EE;
+}
+.timing-phase:last-child { border-right: none; }
+.timing-phase .phase-label { font-size: 10px; font-weight: 700; color: var(--gray); text-transform: uppercase; margin-bottom: 4px; }
+.timing-phase .phase-name { font-size: 12px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+.timing-phase .phase-action { font-size: 10.5px; color: var(--orange); }
+.timing-phase.highlight { background: var(--navy); }
+.timing-phase.highlight .phase-label { color: var(--mid); }
+.timing-phase.highlight .phase-name  { color: #fff; }
+.timing-phase.highlight .phase-action { color: var(--orange); }
+
+/* ── CROSS POLLINATION ───────────────────── */
+.crosspoll { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--light); }
+.crosspoll:last-child { border-bottom: none; }
+.crosspoll .from { flex: 1; }
+.crosspoll .arrow { color: var(--orange); font-size: 16px; flex-shrink: 0; }
+.crosspoll .to   { flex: 1; }
+.crosspoll .question { font-size: 11px; color: var(--gray); font-style: italic; flex: 2; }
+.crosspoll .bu-chip {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div>
+    <span class="badge">APOSTILA DO PARTICIPANTE</span>
+  </div>
+  <div>
+    <h1>Academia de Cross Sell</h1>
+    <p>Da Corrida de Bastão para o Remo em Equipe</p>
+  </div>
+</header>
+
+<!-- TAB NAV -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('t1', this)">
+    <span class="num">1</span> Por que importa
+  </button>
+  <button class="tab-btn" onclick="switchTab('t2', this)">
+    <span class="num">2</span> O que buscar
+  </button>
+  <button class="tab-btn" onclick="switchTab('t3', this)">
+    <span class="num">3</span> Antes de entrar
+  </button>
+  <button class="tab-btn" onclick="switchTab('t4', this)">
+    <span class="num">4</span> O que olhar
+  </button>
+  <button class="tab-btn" onclick="switchTab('t5', this)">
+    <span class="num">5</span> Na conversa
+  </button>
+  <button class="tab-btn" onclick="switchTab('t6', this)">
+    <span class="num">6</span> Depois
+  </button>
+  <button class="tab-btn" onclick="switchTab('t7', this)">
+    <span class="num">7</span> ⚡ Ref. rápida
+  </button>
+  <button class="tab-btn" onclick="switchTab('t8', this)">
+    <span class="num">8</span> 🧰 Caixa de Ferramentas
+  </button>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     TAB 1 — POR QUE ISSO IMPORTA PARA MIM
+═══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════
+     TAB 1 — POR QUE ISSO IMPORTA PARA MIM
+═══════════════════════════════════════════ -->
+<div id="t1" class="tab-panel active">
+  <div class="section-header">
+    <div class="section-icon">🎯</div>
+    <div>
+      <h2>Por que isso importa para mim</h2>
+      <p>A mentalidade certa antes de qualquer técnica</p>
+    </div>
+  </div>
+
+  <!-- MENTALIDADE — âncora principal -->
+  <div style="background:var(--navy);border-radius:10px;padding:22px 24px;margin-bottom:20px;border-left:5px solid var(--orange)">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1px;color:var(--orange);text-transform:uppercase;margin-bottom:10px">A mentalidade que muda tudo</div>
+    <p style="font-size:17px;font-weight:600;color:#fff;line-height:1.5;margin-bottom:10px">
+      Seja genuinamente <span style="color:var(--orange)">interessado</span> no negócio do cliente —<br>e você se tornará naturalmente <span style="color:var(--orange)">interessante</span> para ele.
+    </p>
+    <p style="font-size:12.5px;color:var(--mid);line-height:1.5">
+      Você não está indo buscar algo. Está indo entender. A confiança que o cliente já tem em você — construída na entrega — é o maior ativo que existe. Ela só funciona se a intenção for real.
+    </p>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:20px">
+    <div class="card" style="border-left:4px solid var(--orange)">
+      <div class="card-header" style="color:var(--orange)">Essa postura parece</div>
+      <ul class="bullet-list">
+        <li>Chegar curioso sobre o negócio deles — não com produto para mostrar</li>
+        <li>Ouvir antes de sugerir qualquer coisa</li>
+        <li>Querer que a coisa dê certo para o cliente, não apenas para você</li>
+        <li>Usar a relação de confiança para aprofundar, não para pressionar</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--mid)">
+      <div class="card-header">E NÃO parece</div>
+      <ul class="bullet-list">
+        <li>Chegar como "ave de rapina" — buscando extrair uma oportunidade</li>
+        <li>Forçar uma conversa que não tem abertura genuína</li>
+        <li>Fingir interesse para conseguir uma indicação</li>
+        <li>Fazer o trabalho do Comercial em cima da relação de entrega</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- É / NÃO É -->
+  <p class="section-label">Gerar valor comercial — o que isso significa na prática</p>
+  <div class="grid-2" style="margin-bottom:20px">
+    <div class="card accent-left">
+      <div class="card-header">✅ É</div>
+      <ul class="bullet-list">
+        <li>Capturar inteligência sobre o cliente em campo</li>
+        <li>Identificar sinais de dor e reportar ao Comercial</li>
+        <li>Criar pretextos genuínos para novas conversas</li>
+        <li>Ampliar a confiança que o cliente já tem em você</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--mid)">
+      <div class="card-header">❌ Não é</div>
+      <ul class="bullet-list">
+        <li>Fazer o trabalho do Comercial</li>
+        <li>Propor soluções ou passar propostas</li>
+        <li>Prometer algo que você não pode entregar</li>
+        <li>Criar pressão ou urgência artificial</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FUNIL -->
+  <p class="section-label">A visão de funil — entenda o ciclo completo</p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="funnel">
+        <div class="funnel-step highlight" style="width:90%">Você capta o sinal<small>Sua missão começa e termina aqui</small></div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step" style="width:80%">Comercial qualifica<small>~30 dias</small></div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step" style="width:70%">Proposta e negociação<small>~30 dias</small></div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step" style="width:60%">Fechamento<small>~30 dias</small></div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step" style="width:50%;background:#E8F5E9;color:#1A5C1A">Nova entrega 🎉</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="card" style="background:#FEF9E7;border-color:#F1C40F">
+        <div class="card-header" style="color:var(--gold)">⏱ Ciclo médio</div>
+        <p style="font-size:28px;font-weight:700;color:var(--navy)">90 dias</p>
+        <p>Da primeira conversa ao fechamento. A ansiedade não acelera esse ciclo — mas uma boa escuta no momento certo abrevia o início.</p>
+      </div>
+      <div class="card accent-left">
+        <div class="card-header">Sua missão nesse funil</div>
+        <ul class="bullet-list">
+          <li>Gerar o <strong>primeiro sinal de forma genuína</strong></li>
+          <li>Qualidade sobre quantidade — 1 boa conversa por visita</li>
+          <li>Repassar ao Comercial com contexto suficiente para ele agir</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TAB 2 — O QUE VOCÊ ESTÁ BUSCANDO
+═══════════════════════════════════════════ -->
+<div id="t2" class="tab-panel">
+  <div class="section-header">
+    <div class="section-icon">🔍</div>
+    <div>
+      <h2>O que você está buscando</h2>
+      <p>Dor de negócio, Pain Chain, cross-sell e up-sell</p>
+    </div>
+  </div>
+
+  <!-- BLOCO A — O que é dor de negócio -->
+  <p class="section-label">A — O que é uma dor de negócio</p>
+  <div class="highlight-box" style="margin-bottom:14px">
+    <div class="label">Princípio básico</div>
+    <p>Sem dor, não há mudança. <span style="font-weight:400;font-size:14px;opacity:.85">Dor = Problema, Assunto Crítico de Negócios ou Perda de Oportunidade.</span></p>
+  </div>
+
+  <div class="grid-3" style="margin-bottom:20px">
+    <div class="card" style="border-top:3px solid var(--red)">
+      <div class="card-header" style="color:var(--red)">📉 Diminuição</div>
+      <ul class="bullet-list">
+        <li>Lucros e receita</li>
+        <li>Participação de mercado</li>
+        <li>Qualidade de produtos ou serviços</li>
+        <li>Taxa de crescimento</li>
+        <li>Engajamento e retenção de pessoas</li>
+      </ul>
+    </div>
+    <div class="card" style="border-top:3px solid var(--orange)">
+      <div class="card-header" style="color:var(--orange)">📈 Aumento</div>
+      <ul class="bullet-list">
+        <li>Custos operacionais</li>
+        <li>Competição e pressão de mercado</li>
+        <li>Rotatividade de pessoas</li>
+        <li>Erros e retrabalho</li>
+        <li>Conflitos e atritos internos</li>
+      </ul>
+    </div>
+    <div class="card" style="border-top:3px solid var(--teal)">
+      <div class="card-header" style="color:var(--teal)">⚖ Desalinhamento</div>
+      <ul class="bullet-list">
+        <li>Cultura não reflete a estratégia</li>
+        <li>Regulatório ou compliance</li>
+        <li>Times com objetivos divergentes</li>
+        <li>Liderança sem referência clara</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BLOCO B — Pain Chain -->
+  <p class="section-label">B — Como a dor flui pela organização (Pain Chain)</p>
+  <div class="card" style="margin-bottom:20px;padding:18px 20px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+      <span style="font-size:20px">🔗</span>
+      <p style="font-size:13px;font-weight:600;color:var(--navy)">A dor de uma pessoa vira razão da dor de outra.</p>
+    </div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:16px">O que você capta numa conversa com um gerente de área pode ser sintoma de algo que impacta o Diretor. Entender essa cadeia é o que transforma uma observação em oportunidade.</p>
+
+    <!-- Pain Chain visual -->
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="background:#EEF2F7;border-radius:6px;padding:10px 14px;border-left:4px solid var(--bu-lideranca)">
+        <div style="font-size:10px;font-weight:700;color:var(--bu-lideranca);text-transform:uppercase;letter-spacing:.5px">Diretor de RH</div>
+        <div style="font-size:12.5px;color:var(--navy);font-weight:600">Dor: Alta rotatividade de talentos</div>
+        <div style="font-size:11.5px;color:var(--gray)">Razão: Lideranças não desenvolvidas → clima ruim → pessoas saem</div>
+      </div>
+      <div style="text-align:center;font-size:16px;color:var(--orange)">↓ razão da dor acima</div>
+      <div style="background:#EEF2F7;border-radius:6px;padding:10px 14px;border-left:4px solid var(--bu-lideranca);margin-left:24px">
+        <div style="font-size:10px;font-weight:700;color:var(--bu-lideranca);text-transform:uppercase;letter-spacing:.5px">Gerente de Área</div>
+        <div style="font-size:12.5px;color:var(--navy);font-weight:600">Dor: Time desmotivado e com baixa performance</div>
+        <div style="font-size:11.5px;color:var(--gray)">Razão: Falta de feedback e desenvolvimento individual</div>
+      </div>
+      <div style="text-align:center;font-size:16px;color:var(--orange);margin-left:24px">↓ razão da dor acima</div>
+      <div style="background:#EEF2F7;border-radius:6px;padding:10px 14px;border-left:4px solid var(--bu-lideranca);margin-left:48px">
+        <div style="font-size:10px;font-weight:700;color:var(--bu-lideranca);text-transform:uppercase;letter-spacing:.5px">Colaborador / Analista</div>
+        <div style="font-size:12.5px;color:var(--navy);font-weight:600">Dor: Não sabe o que precisa fazer para crescer</div>
+        <div style="font-size:11.5px;color:var(--gray)">Razão: Ausência de conversas de carreira e reconhecimento</div>
+      </div>
+    </div>
+
+    <div style="margin-top:14px;background:#FFF8F0;border-radius:6px;padding:10px 14px;border-left:3px solid var(--orange)">
+      <p style="font-size:12px;color:var(--navy)"><strong>O que isso muda para você:</strong> quando um gerente fala "meu time está desmotivado", você já sabe que existe uma dor maior acima disso — e que uma conversa bem conduzida pode revelar oportunidade para Liderança, Cultura ou Coach & Mentoring.</p>
+    </div>
+  </div>
+
+  <!-- BLOCO C — Up-sell (primeiro) -->
+  <p class="section-label">C — Up-sell: mesmo território, mais escopo</p>
+  <div class="card" style="border-top:4px solid var(--green);margin-bottom:20px">
+    <div style="margin-bottom:14px">
+      <h3 style="font-size:13px;margin-bottom:4px">O que é</h3>
+      <p style="font-size:12px;color:var(--gray)">O que funciona <strong>cresce</strong>. O piloto de liderança com 20 pessoas vira programa para 80. O módulo avulso vira trilha. A turma de Cursos Abertos vira in-company. É o mesmo problema, mas com mais abrangência, mais pessoas ou mais profundidade.</p>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="section-label" style="margin-bottom:8px">Sinais que indicam up-sell</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--navy);border-left:3px solid var(--green)">
+            <strong>Satisfação explícita:</strong> "Isso funcionou muito bem"
+          </div>
+          <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--navy);border-left:3px solid var(--green)">
+            <strong>Expansão espontânea:</strong> "Temos esse desafio em outros times também"
+          </div>
+          <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--navy);border-left:3px solid var(--green)">
+            <strong>Liderança quer entrar:</strong> "O CEO perguntou sobre participar"
+          </div>
+          <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--navy);border-left:3px solid var(--green)">
+            <strong>Demanda de continuidade:</strong> "Quando podemos refazer isso?"
+          </div>
+          <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--navy);border-left:3px solid var(--green)">
+            <strong>Resultado visível:</strong> cliente comenta melhora e associa à Crescimentum
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label" style="margin-bottom:8px">Perguntas para abrir</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div class="question-item"><span class="q-num" style="background:var(--green)">1</span><div class="q-text">Quem mais dentro da empresa se beneficiaria desse tipo de desenvolvimento?</div></div>
+          <div class="question-item"><span class="q-num" style="background:var(--green)">2</span><div class="q-text">Esse resultado que vocês estão vendo — tem pressão para replicar em outras lideranças?</div></div>
+          <div class="question-item"><span class="q-num" style="background:var(--green)">3</span><div class="q-text">O que faria sentido como próximo passo para dar continuidade ao que construímos aqui?</div></div>
+        </div>
+        <div style="margin-top:10px;background:#E8F5E9;border-radius:5px;padding:8px 10px">
+          <p style="font-size:11px;color:var(--green);font-weight:600">Timing ideal para up-sell</p>
+          <p style="font-size:11.5px;color:var(--navy)">Final de módulo com resultado visível, ou quando o cliente menciona espontaneamente que funcionou. Nunca no início — a confiança ainda está sendo construída.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCO D — Cross-sell (segundo) -->
+  <p class="section-label">D — Cross-sell: mesma empresa, outra porta, outra dor</p>
+  <div class="card" style="border-top:4px solid var(--teal);margin-bottom:20px">
+    <div style="margin-bottom:14px">
+      <h3 style="font-size:13px;margin-bottom:4px">O que é</h3>
+      <p style="font-size:12px;color:var(--gray)">Uma nova BU entra em cena. Não é expandir o que já existe — é abrir uma <strong>porta diferente</strong> para uma <strong>dor diferente</strong> dentro do mesmo cliente. Você está entregando liderança e identifica sintomas de desalinhamento cultural. Ou entrega cultura e percebe que o time comercial tem um problema distinto.</p>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="section-label" style="margin-bottom:8px">Sinais que indicam cross-sell</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--navy);border-left:3px solid var(--teal)">
+            <strong>Dor em domínio diferente:</strong> "Nossa área comercial está com dificuldade de X" (você está entregando Liderança)
+          </div>
+          <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--navy);border-left:3px solid var(--teal)">
+            <strong>Pergunta fora do escopo atual:</strong> "Vocês trabalham com cultura também?"
+          </div>
+          <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--navy);border-left:3px solid var(--teal)">
+            <strong>Sintoma de outra BU que você observa:</strong> durante entrega de Liderança, percebe ausência de cultura ou clima ruim
+          </div>
+          <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--navy);border-left:3px solid var(--teal)">
+            <strong>Pain Chain revelada:</strong> a causa da dor atual está em outro território (ex.: baixa performance do time → liderança não desenvolvida → abre Liderança enquanto entrega DH)
+          </div>
+          <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--navy);border-left:3px solid var(--teal)">
+            <strong>Gatilho de negócio adjacente:</strong> M&A, nova liderança ou expansão cria dor em território diferente do atual
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label" style="margin-bottom:8px">Perguntas para abrir</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div class="question-item"><span class="q-num" style="background:var(--teal)">1</span><div class="q-text">Além desse desafio que estamos resolvendo juntos, o que mais está pesando para o negócio de vocês esse ano?</div></div>
+          <div class="question-item"><span class="q-num" style="background:var(--teal)">2</span><div class="q-text">Se vocês pudessem resolver mais um problema de pessoas ainda esse ano, qual seria?</div></div>
+          <div class="question-item"><span class="q-num" style="background:var(--teal)">3</span><div class="q-text">Existe alguma área da empresa que está passando por algo completamente diferente do que trabalhamos aqui?</div></div>
+        </div>
+        <div style="margin-top:10px;background:#E8F4F8;border-radius:5px;padding:8px 10px">
+          <p style="font-size:11px;color:var(--teal);font-weight:600">Técnica: cross-pollination</p>
+          <p style="font-size:11.5px;color:var(--navy)">Se está entregando Liderança → sonde Cultura. Se entrega Cultura → sonde Vendas. A conexão entre BUs é o seu mapa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MATRIZ DE ADJACÊNCIA -->
+  <p class="section-label">Matriz de adjacência — qual BU abre qual</p>
+  <div class="card" style="margin-bottom:20px;padding:0;overflow:hidden">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th>Você está entregando…</th>
+          <th>Pode abrir conversa sobre…</th>
+          <th>Pergunta ou gatilho</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="bu-tag" style="background:var(--bu-lideranca)">Liderança</span></td>
+          <td><span class="bu-tag" style="background:var(--bu-cultura)">Cultura</span> <span class="bu-tag" style="background:var(--bu-coach)">Coach</span></td>
+          <td>Como os líderes estão sendo o espelho da cultura?<span class="question">Seus líderes têm suporte individual além do programa?</span></td>
+        </tr>
+        <tr>
+          <td><span class="bu-tag" style="background:var(--bu-cultura)">Cultura</span></td>
+          <td><span class="bu-tag" style="background:var(--bu-lideranca)">Liderança</span> <span class="bu-tag" style="background:var(--bu-vendas)">Vendas</span></td>
+          <td>Quem está sendo o guardião da cultura no dia a dia?<span class="question">Essa cultura de performance inclui o time comercial?</span></td>
+        </tr>
+        <tr>
+          <td><span class="bu-tag" style="background:var(--bu-vendas)">Vendas</span></td>
+          <td><span class="bu-tag" style="background:var(--bu-lideranca)">Liderança</span> <span class="bu-tag" style="background:var(--bu-dh)">DH</span></td>
+          <td>Como está a liderança do time comercial?<span class="question">O desafio é técnico ou é de autogestão e motivação?</span></td>
+        </tr>
+        <tr>
+          <td><span class="bu-tag" style="background:var(--bu-equipes)">Equipes</span></td>
+          <td><span class="bu-tag" style="background:var(--bu-lideranca)">Liderança</span> <span class="bu-tag" style="background:var(--bu-cultura)">Cultura</span></td>
+          <td>Quem está facilitando essa integração de times?<span class="question">Essa fragmentação vem da estrutura ou da cultura?</span></td>
+        </tr>
+        <tr>
+          <td><span class="bu-tag" style="background:var(--bu-dh)">Des. Humano</span></td>
+          <td><span class="bu-tag" style="background:#555">Qualquer BU</span></td>
+          <td>Esse padrão aparece mais em qual área da empresa?<span class="question">Isso é individual ou algo que a liderança/cultura está gerando?</span></td>
+        </tr>
+        <tr>
+          <td><span class="bu-tag" style="background:var(--bu-coach)">Coach & Mentoring</span></td>
+          <td><span class="bu-tag" style="background:var(--bu-lideranca)">Liderança</span> <span class="bu-tag" style="background:var(--bu-dh)">DH</span></td>
+          <td>Existe um programa de liderança que suporte essa jornada?<span class="question">O coachee está recebendo desenvolvimento além das sessões?</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GATILHOS -->
+  <p class="section-label">Gatilhos de negócio — janelas naturais de conversa</p>
+  <div class="trigger-grid" style="margin-bottom:20px">
+    <div class="trigger-chip"><span class="icon">🔀</span><strong>M&A / Fusão</strong><span>Abre: Cultura, Liderança</span></div>
+    <div class="trigger-chip"><span class="icon">👤</span><strong>Troca de liderança</strong><span>Abre: Liderança, Coach & Mentoring</span></div>
+    <div class="trigger-chip"><span class="icon">📈</span><strong>Crescimento acelerado</strong><span>Abre: Equipes, Liderança, DH</span></div>
+    <div class="trigger-chip"><span class="icon">🚪</span><strong>Crise de retenção</strong><span>Abre: DH, Cultura, Liderança</span></div>
+    <div class="trigger-chip"><span class="icon">🗺</span><strong>Expansão de mercado</strong><span>Abre: Vendas, Liderança Comercial</span></div>
+    <div class="trigger-chip"><span class="icon">📉</span><strong>Meta não atingida</strong><span>Abre: Vendas, Liderança Comercial</span></div>
+    <div class="trigger-chip"><span class="icon">🌡</span><strong>Clima ruim no RH</strong><span>Abre: DH, Equipes, Cultura</span></div>
+    <div class="trigger-chip"><span class="icon">🔧</span><strong>Reestruturação</strong><span>Abre: Cultura, Liderança</span></div>
+  </div>
+
+  <!-- TIMING -->
+  <p class="section-label">Quando agir — timing na jornada do cliente</p>
+  <div class="timing-bar">
+    <div class="timing-phase">
+      <div class="phase-label">Início</div>
+      <div class="phase-name">Kickoff</div>
+      <div class="phase-action">Colete contexto</div>
+    </div>
+    <div class="timing-phase highlight">
+      <div class="phase-label">Meio ← melhor janela</div>
+      <div class="phase-name">Durante a entrega</div>
+      <div class="phase-action">Abra conversas</div>
+    </div>
+    <div class="timing-phase highlight">
+      <div class="phase-label">Fim ← segunda janela</div>
+      <div class="phase-name">Resultado visível</div>
+      <div class="phase-action">Amplie a conversa</div>
+    </div>
+    <div class="timing-phase">
+      <div class="phase-label">Pós-projeto</div>
+      <div class="phase-name">Fechamento</div>
+      <div class="phase-action">Repasse ao Comercial</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TAB 3 — ANTES DE ENTRAR
+═══════════════════════════════════════════ -->
+<div id="t3" class="tab-panel">
+  <div class="section-header">
+    <div class="section-icon">📋</div>
+    <div>
+      <h2>Antes de entrar</h2>
+      <p>Preparação é o que transforma uma visita comum em uma oportunidade</p>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <p class="section-label">Checklist pré-visita</p>
+  <div class="checklist" style="margin-bottom:24px">
+    <div class="check-item"><div class="check-box"></div><div>Sei qual o momento atual do cliente<span class="check-sub">Crescimento, corte, reestruturação, M&A?</span></div></div>
+    <div class="check-item"><div class="check-box"></div><div>Sei quem vai estar na sala e qual o perfil<span class="check-sub">Veja os perfis abaixo</span></div></div>
+    <div class="check-item"><div class="check-box"></div><div>Sei o que já entregamos para esse cliente<span class="check-sub">BU, tema, resultado percebido</span></div></div>
+    <div class="check-item"><div class="check-box"></div><div>Tenho 2 perguntas preparadas<span class="check-sub">Uma de aprofundamento, uma de expansão</span></div></div>
+    <div class="check-item"><div class="check-box"></div><div>Sei qual BU pode ser relevante para esse cliente<span class="check-sub">Baseado no setor e momento deles</span></div></div>
+    <div class="check-item"><div class="check-box"></div><div>Sei com quem falar depois se capturar algo<span class="check-sub">Quem é o Comercial responsável por essa conta</span></div></div>
+  </div>
+
+  <!-- PERFIS -->
+  <p class="section-label">Quem vai estar na sala — como adaptar sua abordagem</p>
+  <div class="grid-2">
+
+    <!-- DIRETOR / C-LEVEL -->
+    <div class="interlocutor-card">
+      <div class="ic-header" style="background:#1A3A5C"><span>🏢</span><strong>Diretor / C-level</strong></div>
+      <div class="ic-body">
+        <div class="ic-label">Foco</div>
+        <p>Estratégia, crescimento, resultado global, competitividade e imagem da empresa</p>
+        <div class="ic-label">Dores prováveis</div>
+        <p>Não atingir metas de crescimento · Perda de mercado · Retorno dos investimentos · Lentidão para responder ao mercado · Imagem e retenção de talentos</p>
+        <div class="ic-label">O que capta atenção</div>
+        <p>Benchmarks, ROI, impacto estratégico, dados de mercado, cases de resultado</p>
+        <div class="ic-label">Perguntas que funcionam</div>
+        <div style="display:flex;flex-direction:column;gap:4px;margin-top:4px">
+          <div style="background:var(--light);border-radius:4px;padding:6px 8px;font-size:11.5px;color:var(--navy)">"Quais são as prioridades mais críticas para vocês nos próximos 6 meses?"</div>
+          <div style="background:var(--light);border-radius:4px;padding:6px 8px;font-size:11.5px;color:var(--navy)">"O que, se não mudar, vai comprometer a estratégia que vocês têm em mente?"</div>
+          <div style="background:var(--light);border-radius:4px;padding:6px 8px;font-size:11.5px;color:var(--navy)">"O movimento de liderança/cultura está acompanhando o ritmo do negócio?"</div>
+        </div>
+        <div class="ic-label">⚠ Cuidado</div>
+        <p style="color:var(--red)">Não operacionalize. Fique no nível estratégico. Detalhe técnico derruba credibilidade.</p>
+      </div>
+    </div>
+
+    <!-- RH / GESTÃO DE PESSOAS -->
+    <div class="interlocutor-card">
+      <div class="ic-header" style="background:var(--bu-equipes)"><span>👥</span><strong>RH / Gestão de Pessoas</strong></div>
+      <div class="ic-body">
+        <div class="ic-label">Foco</div>
+        <p>Desenvolvimento, clima, retenção, engajamento, atração de talentos</p>
+        <div class="ic-label">Dores prováveis</div>
+        <p>Alta rotatividade · Clima negativo · Dificuldade em desenvolver lideranças · Pressão por ROI de T&D · Falta de engajamento</p>
+        <div class="ic-label">O que capta atenção</div>
+        <p>Impacto em pessoas e resultados, cases de mudança comportamental, metodologia, escuta genuína</p>
+        <div class="ic-label">Perguntas que funcionam</div>
+        <div style="display:flex;flex-direction:column;gap:4px;margin-top:4px">
+          <div style="background:var(--light);border-radius:4px;padding:6px 8px;font-size:11.5px;color:var(--navy)">"Além do que estamos fazendo, o que mais está no radar de vocês esse ano?"</div>
+          <div style="background:var(--light);border-radius:4px;padding:6px 8px;font-size:11.5px;color:var(--navy)">"Existe alguma área onde vocês veem os mesmos desafios que estamos trabalhando aqui?"</div>
+          <div style="background:var(--light);border-radius:4px;padding:6px 8px;font-size:11.5px;color:var(--navy)">"Como está sendo a receptividade da liderança a esse processo?"</div>
+        </div>
+        <div class="ic-label">⚠ Cuidado</div>
+        <p style="color:var(--red)">É o interlocutor mais saturado de fornecedores. Se diferencie pela qualidade da escuta — não pela proposta.</p>
+      </div>
+    </div>
+
+    <!-- ESPECIALISTA DE CULTURA -->
+    <div class="interlocutor-card">
+      <div class="ic-header" style="background:var(--bu-cultura)"><span>🏛</span><strong>Especialista de Cultura (RH)</strong></div>
+      <div class="ic-body">
+        <div class="ic-label">Foco</div>
+        <p>Transformação cultural, cascateamento de valores, clima organizacional, integração pós-M&A</p>
+        <div class="ic-label">Dores prováveis</div>
+        <p>Cultura não vivida na prática · Desalinhamento entre discurso e estratégia · Dificuldade em escalar a cultura · Resistência da liderança à mudança cultural</p>
+        <div class="ic-label">O que capta atenção</div>
+        <p>Profundidade metodológica, diagnóstico real, não superficialidade. Esse perfil desconfia de promessas fáceis.</p>
+        <div class="ic-label">Perguntas que funcionam</div>
+        <div style="display:flex;flex-direction:column;gap:4px;margin-top:4px">
+          <div style="background:var(--light);border-radius:4px;padding:6px 8px;font-size:11.5px;color:var(--navy)">"O que já foi tentado antes que não funcionou? O que ficou no caminho?"</div>
+          <div style="background:var(--light);border-radius:4px;padding:6px 8px;font-size:11.5px;color:var(--navy)">"Onde você percebe a maior distância entre o que a cultura deveria ser e o que é vivido?"</div>
+          <div style="background:var(--light);border-radius:4px;padding:6px 8px;font-size:11.5px;color:var(--navy)">"A liderança está sendo protagonista ou resistente nesse processo?"</div>
+        </div>
+        <div class="ic-label">⚠ Cuidado</div>
+        <p style="color:var(--red)">Ele conhece o assunto. Não ensine — pergunte. Posicione-se como parceiro de pensamento, não como fornecedor com resposta pronta.</p>
+      </div>
+    </div>
+
+    <!-- GERENTE DE ÁREA -->
+    <div class="interlocutor-card">
+      <div class="ic-header" style="background:#4A3A2A"><span>⚙️</span><strong>Gerente de Área / Liderança</strong></div>
+      <div class="ic-body">
+        <div class="ic-label">Foco</div>
+        <p>Time, entrega, metas do dia a dia, desafios operacionais de gestão de pessoas</p>
+        <div class="ic-label">Dores prováveis</div>
+        <p>Time com baixa performance · Dificuldade em dar feedback · Conflitos não resolvidos · Falta de engajamento · Pressão por resultado sem suporte</p>
+        <div class="ic-label">O que capta atenção</div>
+        <p>Praticidade, o que funciona no dia a dia, impacto imediato no time, sem teoria — com aplicação</p>
+        <div class="ic-label">Perguntas que funcionam</div>
+        <div style="display:flex;flex-direction:column;gap:4px;margin-top:4px">
+          <div style="background:var(--light);border-radius:4px;padding:6px 8px;font-size:11.5px;color:var(--navy)">"O que você acha que ainda falta para o time entregar no nível que você precisa?"</div>
+          <div style="background:var(--light);border-radius:4px;padding:6px 8px;font-size:11.5px;color:var(--navy)">"Você percebe que isso acontece só aqui ou em outras áreas também?"</div>
+          <div style="background:var(--light);border-radius:4px;padding:6px 8px;font-size:11.5px;color:var(--navy)">"Seu gestor tem visibilidade desse desafio ou você está segurando isso aqui embaixo?"</div>
+        </div>
+        <div class="ic-label">⚠ Cuidado</div>
+        <p style="color:var(--red)">Rico em sintomas, mas tem pouca autonomia de compra. Use para capturar inteligência — não para propor soluções. O que você ouve aqui sobe para o nível certo via Comercial.</p>
+      </div>
+    </div>
+
+  </div><!-- end grid -->
+</div>
+
+<div id="t4" class="tab-panel">
+  <div class="section-header">
+    <div class="section-icon">👁</div>
+    <div>
+      <h2>O que você sabe olhar</h2>
+      <p>Como identificar uma dor sem que o cliente a verbalize</p>
+    </div>
+  </div>
+
+  <div class="grid-3" style="margin-bottom:20px">
+    <div class="card" style="border-top:3px solid var(--red)">
+      <div class="card-header" style="color:var(--red)">⚠ Dor</div>
+      <p>O problema real do cliente. Raramente vem nomeado assim.</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--orange)">
+      <div class="card-header" style="color:var(--orange)">→ Evidência / Sintoma</div>
+      <p><strong>O que você capta em campo.</strong> Comportamentos, falas, padrões observáveis.</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--green)">
+      <div class="card-header" style="color:var(--green)">✓ Solução</div>
+      <p>O produto ou serviço da Crescimentum que responde à dor.</p>
+    </div>
+  </div>
+
+  <p class="section-label">Mapa de dores por área — clique para expandir</p>
+  <div class="accordion">
+
+    <!-- LIDERANÇA -->
+    <div class="acc-item bu-lideranca" id="acc-lider">
+      <div class="acc-header" onclick="toggleAcc('acc-lider')">
+        <span>👔</span> Gestão &amp; Liderança
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="grid-2">
+          <div class="dor-group">
+            <div class="dor-name">Dificuldade no pipeline de liderança</div>
+            <ul class="symptom-list">
+              <li>Líderes que ainda executam em vez de liderar</li>
+              <li>Dificuldade em dar feedback ou se posicionar</li>
+              <li>Não consegue se distanciar do papel técnico</li>
+            </ul>
+          </div>
+          <div class="dor-group">
+            <div class="dor-name">Liderança tóxica / saúde mental</div>
+            <ul class="symptom-list">
+              <li>Aumento de afastamentos por saúde mental</li>
+              <li>Time com baixa produtividade e esgotamento</li>
+              <li>Feedbacks negativos sobre carga e equilíbrio</li>
+            </ul>
+          </div>
+          <div class="dor-group">
+            <div class="dor-name">Resistência a mudanças</div>
+            <ul class="symptom-list">
+              <li>Relutância a novas tecnologias ou metodologias</li>
+              <li>Reação tardia a mudanças de mercado</li>
+              <li>Time sem estímulo para testar ideias novas</li>
+            </ul>
+          </div>
+          <div class="dor-group">
+            <div class="dor-name">Estagnação no desenvolvimento de talentos</div>
+            <ul class="symptom-list">
+              <li>Falta de feedback regular da liderança</li>
+              <li>Líderes não empoderam o time</li>
+              <li>Perda constante de talentos para concorrentes</li>
+            </ul>
+          </div>
+          <div class="dor-group">
+            <div class="dor-name">Omissão e falta de posicionamento</div>
+            <ul class="symptom-list">
+              <li>Decisões sempre adiadas</li>
+              <li>Times com harmonia artificial e sem conflitos</li>
+              <li>Líderes com receio de dar feedback</li>
+            </ul>
+          </div>
+          <div class="dor-group">
+            <div class="dor-name">Metas mal definidas</div>
+            <ul class="symptom-list">
+              <li>Dificuldade em monitorar resultados</li>
+              <li>Entregas atrasadas e retrabalho</li>
+              <li>Ações desconectadas da estratégia</li>
+            </ul>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <p style="font-size:11px;color:var(--gray)"><strong>Abre conversa para:</strong> <span class="pill navy">Coach &amp; Mentoring</span> <span class="pill navy">Cultura</span> <span class="pill navy">DH</span></p>
+      </div>
+    </div>
+
+    <!-- CULTURA -->
+    <div class="acc-item bu-cultura" id="acc-cult">
+      <div class="acc-header" onclick="toggleAcc('acc-cult')">
+        <span>🏛</span> Cultura &amp; Evolução dos Negócios
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="grid-2">
+          <div class="dor-group">
+            <div class="dor-name">Ausência de inovação</div>
+            <ul class="symptom-list">
+              <li>Adoção lenta de IA e tecnologias disruptivas</li>
+              <li>Projetos de inovação constantemente atrasados</li>
+              <li>Lideranças acreditam que não têm perfil para inovar</li>
+            </ul>
+          </div>
+          <div class="dor-group">
+            <div class="dor-name">Cultura desalinhada à estratégia</div>
+            <ul class="symptom-list">
+              <li>Fusão de empresas com culturas distintas</li>
+              <li>Cultura não vivida na prática</li>
+              <li>Cascateamento da mudança não acontece</li>
+            </ul>
+          </div>
+          <div class="dor-group">
+            <div class="dor-name">Ineficiências operacionais</div>
+            <ul class="symptom-list">
+              <li>Custo crescente sem aumento de produção</li>
+              <li>Processos vistos como obstáculos em auditorias</li>
+              <li>Dificuldade em atingir metas de produtividade</li>
+            </ul>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <p style="font-size:11px;color:var(--gray)"><strong>Abre conversa para:</strong> <span class="pill navy">Liderança</span> <span class="pill navy">Vendas</span> <span class="pill navy">Equipes</span></p>
+      </div>
+    </div>
+
+    <!-- VENDAS -->
+    <div class="acc-item bu-vendas" id="acc-vend">
+      <div class="acc-header" onclick="toggleAcc('acc-vend')">
+        <span>💼</span> Vendas &amp; Relacionamento com Cliente
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="grid-2">
+          <div class="dor-group">
+            <div class="dor-name">Foco em meta sem foco em pessoas</div>
+            <ul class="symptom-list">
+              <li>Liderança cobra número sem direcionar o "como"</li>
+              <li>Alta rotatividade por falta de engajamento</li>
+              <li>Ausência de feedback construtivo e desenvolvimento</li>
+            </ul>
+          </div>
+          <div class="dor-group">
+            <div class="dor-name">Execução sem planejamento estratégico</div>
+            <ul class="symptom-list">
+              <li>Foco operacional, eterno apagar de incêndios</li>
+              <li>Baixa análise de prioridades</li>
+              <li>Atividades desalinhadas da estratégia comercial</li>
+            </ul>
+          </div>
+          <div class="dor-group">
+            <div class="dor-name">Visão centrada no produto, não no cliente</div>
+            <ul class="symptom-list">
+              <li>Baixa taxa de conversão por falta de personalização</li>
+              <li>Negociações baseadas só em desconto</li>
+              <li>Falta de entendimento das dores do cliente</li>
+            </ul>
+          </div>
+          <div class="dor-group">
+            <div class="dor-name">Engessamento e resistência ao mercado</div>
+            <ul class="symptom-list">
+              <li>Resistência ao CRM e automação</li>
+              <li>Dificuldade no cenário omnichannel e remoto</li>
+              <li>Falta de clareza em papéis e responsabilidades</li>
+            </ul>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <p style="font-size:11px;color:var(--gray)"><strong>Abre conversa para:</strong> <span class="pill navy">Liderança Comercial</span> <span class="pill navy">DH</span> <span class="pill navy">Cultura</span></p>
+      </div>
+    </div>
+
+    <!-- DESENVOLVIMENTO HUMANO -->
+    <div class="acc-item bu-dh" id="acc-dh">
+      <div class="acc-header" onclick="toggleAcc('acc-dh')">
+        <span>🌱</span> Desenvolvimento Humano
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="grid-2">
+          <div class="dor-group">
+            <div class="dor-name">Pouco controle emocional</div>
+            <ul class="symptom-list">
+              <li>Respostas abruptas e reações defensivas</li>
+              <li>Explosões emocionais ou comportamentos agressivos</li>
+              <li>Ausência de paciência em situações de pressão</li>
+            </ul>
+          </div>
+          <div class="dor-group">
+            <div class="dor-name">Excesso de passividade</div>
+            <ul class="symptom-list">
+              <li>Dependência excessiva de gestores para resolver problemas</li>
+              <li>Baixa proatividade e desmotivação</li>
+              <li>Postura reativa sem propostas de solução</li>
+            </ul>
+          </div>
+          <div class="dor-group">
+            <div class="dor-name">Baixa produtividade e autogestão ineficaz</div>
+            <ul class="symptom-list">
+              <li>Procrastinação crônica e perda de prazos</li>
+              <li>Desequilíbrio entre vida pessoal e profissional</li>
+              <li>Retrabalho por falta de organização</li>
+            </ul>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <p style="font-size:11px;color:var(--gray)"><strong>Abre conversa para:</strong> <span class="pill navy">Qualquer BU</span> — pergunte onde o padrão aparece mais</p>
+      </div>
+    </div>
+
+    <!-- TRABALHO EM EQUIPE -->
+    <div class="acc-item bu-equipes" id="acc-eq">
+      <div class="acc-header" onclick="toggleAcc('acc-eq')">
+        <span>🤝</span> Trabalho em Equipe
+        <span class="acc-chevron">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="grid-2">
+          <div class="dor-group">
+            <div class="dor-name">Comunicação ineficiente</div>
+            <ul class="symptom-list">
+              <li>Mal-entendidos frequentes e mensagens vagas</li>
+              <li>Atrasos por falta de alinhamento entre pessoas</li>
+              <li>Retrabalho por falta de clareza nas informações</li>
+            </ul>
+          </div>
+          <div class="dor-group">
+            <div class="dor-name">Conflitos mal gerenciados</div>
+            <ul class="symptom-list">
+              <li>Evitação de discussões difíceis, sorrisos forçados</li>
+              <li>Conflitos que viram ressentimentos prolongados</li>
+              <li>Problemas que ficam sem resolução</li>
+            </ul>
+          </div>
+          <div class="dor-group">
+            <div class="dor-name">Silos e competitividade excessiva</div>
+            <ul class="symptom-list">
+              <li>Pessoas competindo por reconhecimento individual</li>
+              <li>Falta de compartilhamento entre grupos</li>
+              <li>Objetivos desconectados, esforços fragmentados</li>
+            </ul>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <p style="font-size:11px;color:var(--gray)"><strong>Abre conversa para:</strong> <span class="pill navy">Liderança</span> <span class="pill navy">Cultura</span> <span class="pill navy">DH</span></p>
+      </div>
+    </div>
+
+  </div><!-- end accordion -->
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TAB 5 — NA CONVERSA
+═══════════════════════════════════════════ -->
+<div id="t5" class="tab-panel">
+  <div class="section-header">
+    <div class="section-icon">💬</div>
+    <div>
+      <h2>O que você faz na conversa</h2>
+      <p>O mínimo passo elegante — 4 perguntas, 2 boas já é ganho</p>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:20px">
+    <div class="card" style="border-top:3px solid var(--teal)">
+      <div class="card-header" style="color:var(--teal)">↩ Via reativa</div>
+      <p style="margin-bottom:8px">O cliente traz algo naturalmente. Você <strong>identifica</strong> e captura.</p>
+      <ul class="bullet-list">
+        <li>Escuta ativa durante a entrega</li>
+        <li>Reconhece o sinal sem forçar</li>
+        <li>Faz uma pergunta de aprofundamento</li>
+      </ul>
+    </div>
+    <div class="card" style="border-top:3px solid var(--orange)">
+      <div class="card-header" style="color:var(--orange)">→ Via proativa</div>
+      <p style="margin-bottom:8px">Você <strong>cria</strong> intencionalmente a conversa. Planejada antes de entrar.</p>
+      <ul class="bullet-list">
+        <li>Usa gatilho de negócio como pretexto</li>
+        <li>Formula pergunta de expansão</li>
+        <li>Direciona para BU adjacente</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="section-label">Perguntas por interlocutor</p>
+
+  <div class="question-block">
+    <div class="qb-header">
+      <span class="qb-title">🏢 Com Diretores e C-level</span>
+      <span class="pill orange">Nível estratégico</span>
+    </div>
+    <div class="qb-body">
+      <div class="question-item"><span class="q-num">1</span><div><div class="q-text">Quais são as prioridades mais críticas para vocês nos próximos 6 meses?</div><div class="q-when">Para abrir contexto de negócio</div></div></div>
+      <div class="question-item"><span class="q-num">2</span><div><div class="q-text">O que, se não mudar, vai comprometer a estratégia que vocês têm em mente?</div><div class="q-when">Para acessar a dor mais funda</div></div></div>
+      <div class="question-item"><span class="q-num">3</span><div><div class="q-text">Vocês têm sentido que o movimento de liderança/cultura/equipes está acompanhando esse ritmo?</div><div class="q-when">Para conectar com BU</div></div></div>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="qb-header">
+      <span class="qb-title">👥 Com RH / Gestão de Pessoas</span>
+      <span class="pill navy">Nível de pessoas</span>
+    </div>
+    <div class="qb-body">
+      <div class="question-item"><span class="q-num">1</span><div><div class="q-text">Além do que a gente está fazendo juntos, o que mais está no radar de vocês para esse ano?</div><div class="q-when">Para abrir escopo</div></div></div>
+      <div class="question-item"><span class="q-num">2</span><div><div class="q-text">Existe alguma área da empresa onde vocês veem os mesmos desafios que a gente está trabalhando aqui?</div><div class="q-when">Para identificar cross-sell</div></div></div>
+      <div class="question-item"><span class="q-num">3</span><div><div class="q-text">Como está sendo recebida a liderança dentro desse processo?</div><div class="q-when">Para sinalizar adjacência com Liderança/Cultura</div></div></div>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="qb-header">
+      <span class="qb-title">⚙️ Com Gerentes de Área</span>
+      <span class="pill gray">Nível operacional</span>
+    </div>
+    <div class="qb-body">
+      <div class="question-item"><span class="q-num">1</span><div><div class="q-text">O que você acha que ainda falta para o time entregar no nível que você precisa?</div><div class="q-when">Para mapear dores do time</div></div></div>
+      <div class="question-item"><span class="q-num">2</span><div><div class="q-text">Você percebe que isso acontece só aqui ou em outras áreas também?</div><div class="q-when">Para ampliar escopo</div></div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <p class="section-label">Cross-pollination — se está entregando X, sonde Y</p>
+  <div class="card" style="padding:12px 16px">
+    <div class="crosspoll">
+      <div class="from"><span class="bu-chip" style="background:var(--bu-lideranca)">Liderança</span></div>
+      <div class="arrow">→</div>
+      <div class="to"><span class="bu-chip" style="background:var(--bu-cultura)">Cultura</span></div>
+      <div class="question">Como os líderes estão modelando a cultura no dia a dia?</div>
+    </div>
+    <div class="crosspoll">
+      <div class="from"><span class="bu-chip" style="background:var(--bu-cultura)">Cultura</span></div>
+      <div class="arrow">→</div>
+      <div class="to"><span class="bu-chip" style="background:var(--bu-vendas)">Vendas</span></div>
+      <div class="question">Essa cultura de performance está chegando no time comercial?</div>
+    </div>
+    <div class="crosspoll">
+      <div class="from"><span class="bu-chip" style="background:var(--bu-vendas)">Vendas</span></div>
+      <div class="arrow">→</div>
+      <div class="to"><span class="bu-chip" style="background:var(--bu-lideranca)">Liderança</span></div>
+      <div class="question">Como está sendo liderado esse time comercial?</div>
+    </div>
+    <div class="crosspoll">
+      <div class="from"><span class="bu-chip" style="background:var(--bu-equipes)">Equipes</span></div>
+      <div class="arrow">→</div>
+      <div class="to"><span class="bu-chip" style="background:var(--bu-cultura)">Cultura</span></div>
+      <div class="question">Essa fragmentação vem da cultura ou da estrutura?</div>
+    </div>
+    <div class="crosspoll">
+      <div class="from"><span class="bu-chip" style="background:var(--bu-dh)">Des. Humano</span></div>
+      <div class="arrow">→</div>
+      <div class="to"><span class="bu-chip" style="background:#555">Qualquer BU</span></div>
+      <div class="question">Isso é individual ou é algo que a liderança/cultura está gerando?</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TAB 6 — O QUE FAZER DEPOIS
+═══════════════════════════════════════════ -->
+<div id="t6" class="tab-panel">
+  <div class="section-header">
+    <div class="section-icon">✅</div>
+    <div>
+      <h2>O que fazer depois</h2>
+      <p>Fechar o ciclo é parte da entrega — não uma tarefa extra</p>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="margin-bottom:20px">
+    <div class="label">Regra de ouro</div>
+    <p>Uma oportunidade perdida no WhatsApp é uma oportunidade perdida para sempre.<br>
+    <small style="font-weight:400;opacity:.8">O seu insight só vira valor para a empresa quando chega ao Comercial de forma estruturada.</small></p>
+  </div>
+
+  <p class="section-label">O fluxo de fechamento</p>
+  <div class="card" style="margin-bottom:20px">
+    <div class="process">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <div class="process-content">
+          <h4>Registre na hora</h4>
+          <p>Anote o que ouviu ou observou logo após a visita. Contexto, quem disse, em que situação. Não confie na memória.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <div class="process-content">
+          <h4>Classifique o que você tem</h4>
+          <p>É uma <strong>oportunidade</strong> (sinal de dor + interesse) ou uma <strong>conversa casual</strong> (menção sem profundidade)? Só a primeira precisa de ação imediata.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <div class="process-content">
+          <h4>Acione o Comercial responsável</h4>
+          <p>Envie por canal acordado com o contexto: quem é o cliente, quem você falou, o que foi dito, o que você entendeu como oportunidade.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <div class="process-content">
+          <h4>Registre no canal oficial</h4>
+          <p>Confirme que a informação entrou no DASH ou no canal definido pela empresa. Se não entrou, não existe.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-label">Oportunidade vs. conversa casual</p>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid var(--green)">
+      <div class="card-header" style="color:var(--green)">✓ Oportunidade — acione o Comercial</div>
+      <ul class="bullet-list">
+        <li>Cliente verbalizou uma dor específica</li>
+        <li>Cliente perguntou sobre algo que não está contratado</li>
+        <li>Você identificou sintoma claro de uma das BUs</li>
+        <li>Cliente mencionou outro time ou área com problema</li>
+        <li>Existe abertura e timing favorável</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--mid)">
+      <div class="card-header">↗ Conversa casual — guarde para próxima visita</div>
+      <ul class="bullet-list">
+        <li>Comentário passageiro sem aprofundamento</li>
+        <li>Menção de problema sem evidência de dor</li>
+        <li>Timing claramente ruim (crise, foco em outra entrega)</li>
+        <li>Você não conseguiu fazer nenhuma pergunta de aprofundamento</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="card accent-left">
+    <div class="card-header">O que passar ao Comercial — formato mínimo</div>
+    <div class="checklist" style="margin-top:8px">
+      <div class="check-item"><div class="check-box"></div><div><strong>Quem</strong> — nome do cliente e quem você falou<span class="check-sub">Ex: "RH da Empresa X, com a Carla, diretora de GP"</span></div></div>
+      <div class="check-item"><div class="check-box"></div><div><strong>O que</strong> — o que foi dito ou observado<span class="check-sub">Ex: "Ela mencionou que a área comercial está com dificuldade de reter o time"</span></div></div>
+      <div class="check-item"><div class="check-box"></div><div><strong>Leitura</strong> — o que você entendeu como oportunidade<span class="check-sub">Ex: "Parece ser uma abertura para Liderança de Equipes Comerciais ou Vendas"</span></div></div>
+      <div class="check-item"><div class="check-box"></div><div><strong>Próximo passo sugerido</strong><span class="check-sub">Ex: "Você consegue ligar para ela na próxima semana?"</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TAB 7 — REFERÊNCIA RÁPIDA
+═══════════════════════════════════════════ -->
+<div id="t7" class="tab-panel">
+  <div class="section-header">
+    <div class="section-icon">⚡</div>
+    <div>
+      <h2>Referência rápida</h2>
+      <p>Consulte antes de cada visita ou entrega</p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- Checklist compacto -->
+    <div class="quick-ref-block">
+      <div class="qr-header">📋 Checklist pré-visita</div>
+      <div class="qr-body">
+        <div class="checklist">
+          <div class="check-item" style="padding:6px 10px"><div class="check-box"></div><div style="font-size:12px">Momento do cliente</div></div>
+          <div class="check-item" style="padding:6px 10px"><div class="check-box"></div><div style="font-size:12px">Quem vai estar na sala</div></div>
+          <div class="check-item" style="padding:6px 10px"><div class="check-box"></div><div style="font-size:12px">O que já entregamos</div></div>
+          <div class="check-item" style="padding:6px 10px"><div class="check-box"></div><div style="font-size:12px">2 perguntas preparadas</div></div>
+          <div class="check-item" style="padding:6px 10px"><div class="check-box"></div><div style="font-size:12px">BU relevante mapeada</div></div>
+          <div class="check-item" style="padding:6px 10px"><div class="check-box"></div><div style="font-size:12px">Sei com quem falar depois</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cross/Up resumo -->
+    <div class="quick-ref-block">
+      <div class="qr-header">🔍 Cross-sell vs Up-sell</div>
+      <div class="qr-body">
+        <table class="quick-ref-table">
+          <tr><td>Cross-sell</td><td>Mesma empresa, nova BU. Sinal: nova dor em território diferente</td></tr>
+          <tr><td>Up-sell</td><td>Mesma BU, mais escopo. Sinal: "funcionou, queremos expandir"</td></tr>
+          <tr><td>Meu papel</td><td>Criar o sinal. O Comercial qualifica e fecha.</td></tr>
+          <tr><td>Ciclo médio</td><td>90 dias do primeiro sinal ao fechamento</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="quick-ref-block" style="margin-top:14px">
+    <div class="qr-header">↔ Adjacência entre BUs — o que abre o quê</div>
+    <div class="qr-body">
+      <table class="quick-ref-table">
+        <tr>
+          <td>Liderança</td>
+          <td>→ <strong>Cultura</strong> ("Como os líderes modelam a cultura?") · <strong>Coach</strong> ("Têm suporte individual?") · <strong>DH</strong> ("Como está o bem-estar do time?")</td>
+        </tr>
+        <tr>
+          <td>Cultura</td>
+          <td>→ <strong>Liderança</strong> ("Quem guarda a cultura?") · <strong>Vendas</strong> ("A cultura de performance inclui o comercial?")</td>
+        </tr>
+        <tr>
+          <td>Vendas</td>
+          <td>→ <strong>Liderança Comercial</strong> ("Como está sendo liderado esse time?") · <strong>DH</strong> ("É técnico ou é autogestão e motivação?")</td>
+        </tr>
+        <tr>
+          <td>Equipes</td>
+          <td>→ <strong>Liderança</strong> ("Quem facilita essa integração?") · <strong>Cultura</strong> ("Vem da estrutura ou da cultura?")</td>
+        </tr>
+        <tr>
+          <td>DH</td>
+          <td>→ <strong>Qualquer BU</strong> ("Onde esse padrão aparece mais? É individual ou a liderança está gerando isso?")</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="quick-ref-block" style="margin-top:14px">
+    <div class="qr-header">⚠ Principais sintomas por área</div>
+    <div class="qr-body">
+      <table class="quick-ref-table">
+        <tr>
+          <td><span style="color:var(--bu-lideranca);font-weight:700">Liderança</span></td>
+          <td>Líderes que executam · Decisões adiadas · Harmonia artificial · Talentos saindo · Sem feedback</td>
+        </tr>
+        <tr>
+          <td><span style="color:var(--bu-cultura);font-weight:700">Cultura</span></td>
+          <td>Cultura não vivida · M&A sem integração · Inovação travada · Processos como obstáculo</td>
+        </tr>
+        <tr>
+          <td><span style="color:var(--bu-vendas);font-weight:700">Vendas</span></td>
+          <td>Só cobra número · Alta rotatividade · Negociação por desconto · Foco operacional sem estratégia</td>
+        </tr>
+        <tr>
+          <td><span style="color:var(--bu-dh);font-weight:700">Des. Humano</span></td>
+          <td>Reações abruptas · Passividade · Procrastinação · Perda de prazo · Desequilíbrio vida/trabalho</td>
+        </tr>
+        <tr>
+          <td><span style="color:var(--bu-equipes);font-weight:700">Equipes</span></td>
+          <td>Mensagens vagas · Conflitos acumulados · Silos · Competição individual · Retrabalho</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="quick-ref-block" style="margin-top:14px">
+    <div class="qr-header">🌐 Gatilhos de negócio — janelas de conversa</div>
+    <div class="qr-body">
+      <table class="quick-ref-table">
+        <tr><td>M&A / Fusão</td><td>Cultura, Liderança</td></tr>
+        <tr><td>Troca de liderança</td><td>Liderança, Coach &amp; Mentoring</td></tr>
+        <tr><td>Crescimento acelerado</td><td>Equipes, Liderança, DH</td></tr>
+        <tr><td>Crise de retenção</td><td>DH, Cultura, Liderança</td></tr>
+        <tr><td>Meta não atingida</td><td>Vendas, Liderança Comercial</td></tr>
+        <tr><td>Clima ruim no RH</td><td>DH, Equipes, Cultura</td></tr>
+        <tr><td>Expansão de mercado</td><td>Vendas, Equipes</td></tr>
+        <tr><td>Reestruturação</td><td>Cultura, Liderança</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card accent-left" style="margin-top:14px">
+    <div class="card-header">💡 O mínimo passo elegante</div>
+    <ul class="bullet-list">
+      <li><strong>Prepare 4 perguntas</strong> antes de entrar</li>
+      <li><strong>Faça 2 boas</strong> — isso já é ganho</li>
+      <li><strong>1 sinal capturado</strong> e repassado = missão cumprida</li>
+      <li>Curiosidade genuína > técnica perfeita</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     TAB 8 — CAIXA DE FERRAMENTAS
+═══════════════════════════════════════════ -->
+<div id="t8" class="tab-panel">
+  <div class="section-header">
+    <div class="section-icon">🧰</div>
+    <div>
+      <h2>Caixa de Ferramentas</h2>
+      <p>Quais alavancas eu posso acionar hoje para criar, avançar ou expandir um negócio?</p>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="margin-bottom:20px">
+    <div class="label">Como usar este painel</div>
+    <p>Cada ferramenta indica <strong>quem operacionaliza</strong> e <strong>o que você precisa fazer</strong> para acioná-la. Algumas você usa diretamente. Outras passam pelo Comercial.</p>
+  </div>
+
+  <!-- LEGENDA -->
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px">
+    <div style="display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--navy)">
+      <span style="background:#D5EFDE;color:#145A32;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:700">✓ VOCÊ USA</span>
+      <span style="color:var(--gray)">Você pode acionar diretamente</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--navy)">
+      <span style="background:#FEE9DF;color:#A0421A;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:700">⚠ VALIDE ANTES</span>
+      <span style="color:var(--gray)">Valide com liderança comercial antes de oferecer</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--navy)">
+      <span style="background:#DDE4EA;color:#1A2B3A;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:700">→ PASSE AO COMERCIAL</span>
+      <span style="color:var(--gray)">Você identifica, Comercial operacionaliza</span>
+    </div>
+  </div>
+
+  <!-- FERRAMENTAS: VOCÊ USA -->
+  <p class="section-label">Ferramentas que você pode acionar</p>
+  <div class="grid-2" style="margin-bottom:20px">
+
+    <div class="card" style="border-left:4px solid var(--green)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <h3 style="font-size:13px;margin:0">📚 Cortesia Cursos Abertos</h3>
+        <span style="background:#D5EFDE;color:#145A32;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700">✓ VOCÊ USA</span>
+      </div>
+      <p style="font-size:12px;color:var(--gray);margin-bottom:8px">Todos os cursos abertos — <em>exceto</em> Cultivando Cultura e Coaching (para estes, desconto pode ser negociado).</p>
+      <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:11.5px;color:var(--navy)">
+        <strong>Como usar:</strong> Convide o cliente para conhecer um curso como experiência. Cria porta de entrada para proposta comercial in-company ou turma fechada.
+      </div>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--green);grid-column:1/-1">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <h3 style="font-size:13px;margin:0">📖 Cases e Conteúdos Proprietários</h3>
+        <span style="background:#D5EFDE;color:#145A32;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700">✓ VOCÊ USA</span>
+      </div>
+      <p style="font-size:12px;color:var(--gray);margin-bottom:8px">Cases relevantes por setor · Estudos e curadorias · Materiais proprietários adequados à dor do cliente.</p>
+      <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:11.5px;color:var(--navy)">
+        <strong>Como usar:</strong> Identifique qual dor ou setor é relevante e compartilhe diretamente com o cliente. Se precisar de apoio para encontrar o material certo, busque com Comercial, Suporte a Vendas ou Marketing.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FERRAMENTAS: VALIDE ANTES -->
+  <p class="section-label">Valide com liderança comercial antes de oferecer</p>
+  <div class="grid-2" style="margin-bottom:20px">
+
+    <div class="card" style="border-left:4px solid var(--orange)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <h3 style="font-size:13px;margin:0">🎤 Palestra Cortesia</h3>
+        <span style="background:#FEE9DF;color:#A0421A;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700">⚠ VALIDE ANTES</span>
+      </div>
+      <p style="font-size:12px;color:var(--gray);margin-bottom:8px">Convite para uma palestra gratuita da Crescimentum para o cliente e/ou sua equipe.</p>
+      <div style="background:#FFF5F0;border-radius:5px;padding:8px 10px;font-size:11.5px;color:var(--navy)">
+        <strong>Antes de oferecer:</strong> Valide com a liderança comercial a disponibilidade e o contexto adequado para o cliente.
+      </div>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--orange)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <h3 style="font-size:13px;margin:0">📊 Relatório de Análise do Cliente</h3>
+        <span style="background:#FEE9DF;color:#A0421A;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700">⚠ VALIDE ANTES</span>
+      </div>
+      <p style="font-size:12px;color:var(--gray);margin-bottom:8px">Análise estruturada do cliente — perfil, histórico, oportunidades e recomendações personalizadas.</p>
+      <div style="background:#FFF5F0;border-radius:5px;padding:8px 10px;font-size:11.5px;color:var(--navy)">
+        <strong>Antes de oferecer:</strong> Valide com a liderança comercial se o cliente e o momento são adequados para esse tipo de entrega.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FERRAMENTAS: PASSE AO COMERCIAL -->
+  <p class="section-label">Identifique a oportunidade — passe ao Comercial para operacionalizar</p>
+  <div class="grid-2" style="margin-bottom:24px">
+
+    <div class="card" style="border-left:4px solid var(--mid)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <h3 style="font-size:13px;margin:0">🎓 Cortesia Líder do Futuro</h3>
+        <span style="background:#DDE4EA;color:#1A2B3A;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700">→ PASSE AO COMERCIAL</span>
+      </div>
+      <p style="font-size:12px;color:var(--gray);margin-bottom:8px">LF · LCF — convite para o cliente experimentar um programa de liderança sem custo.</p>
+      <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:11.5px;color:var(--navy)">
+        <strong>Seu papel:</strong> Identificar o cliente com fit e sinalizar a oportunidade. O Comercial operacionaliza o convite e define a turma disponível.
+      </div>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--mid)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <h3 style="font-size:13px;margin:0">🧑‍🏫 Facilitador ou Especialista em Reunião Comercial</h3>
+        <span style="background:#DDE4EA;color:#1A2B3A;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700">→ PASSE AO COMERCIAL</span>
+      </div>
+      <p style="font-size:12px;color:var(--gray);margin-bottom:8px">Trazer um especialista da Crescimentum para uma reunião com o cliente e ampliar a conversa.</p>
+      <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:11.5px;color:var(--navy)">
+        <strong>Seu papel:</strong> Identificar o momento de abertura e passar ao Comercial com contexto. Eles organizam a agenda e definem quem vai.
+      </div>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--mid)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <h3 style="font-size:13px;margin:0">💬 Conversa Exploratória com Especialista da BU</h3>
+        <span style="background:#DDE4EA;color:#1A2B3A;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700">→ PASSE AO COMERCIAL</span>
+      </div>
+      <p style="font-size:12px;color:var(--gray);margin-bottom:8px">Uma conversa informal entre o cliente e um especialista da Crescimentum para explorar uma nova dor ou BU.</p>
+      <div style="background:var(--light);border-radius:5px;padding:8px 10px;font-size:11.5px;color:var(--navy)">
+        <strong>Seu papel:</strong> Perceber a abertura e sinalizar ao Comercial. Eles estruturam a conversa e definem o especialista certo.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- EVENTOS -->
+  <p class="section-label">Eventos — painel de relacionamento</p>
+  <div class="card" style="margin-bottom:16px">
+    <p style="font-size:12.5px;color:var(--gray);margin-bottom:16px">Os eventos da Crescimentum e de parceiros são uma das ferramentas mais poderosas de relacionamento — e não exigem conversa de venda. Convide o cliente para participar e deixe a experiência falar.</p>
+    <div class="grid-2" style="margin-bottom:16px">
+      <div style="background:var(--light);border-radius:6px;padding:12px 14px">
+        <div style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:6px">🏢 Eventos Crescimentum</div>
+        <p style="font-size:11.5px;color:var(--gray)">Eventos proprietários da Crescimentum — conteúdo exclusivo, networking e experiência de marca.</p>
+      </div>
+      <div style="background:var(--light);border-radius:6px;padding:12px 14px">
+        <div style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:6px">🤝 Eventos de Parceiros</div>
+        <p style="font-size:11.5px;color:var(--gray)">Eventos de parceiros estratégicos onde a Crescimentum está presente ou pode incluir o cliente.</p>
+      </div>
+      <div style="background:var(--light);border-radius:6px;padding:12px 14px">
+        <div style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:6px">⭐ Encontros Exclusivos</div>
+        <p style="font-size:11.5px;color:var(--gray)">Encontros exclusivos com clientes selecionados — ambiente de troca de alto nível.</p>
+      </div>
+      <div style="background:var(--light);border-radius:6px;padding:12px 14px">
+        <div style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:6px">🎙 Webinars e Talks</div>
+        <p style="font-size:11.5px;color:var(--gray)">Conteúdo ao vivo com especialistas — fácil de compartilhar com o cliente como convite.</p>
+      </div>
+    </div>
+
+    <!-- BOTÕES -->
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
+      <a href="https://eventos.crescimentum.com/#" target="_blank"
+         style="display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;text-decoration:none;padding:12px 24px;border-radius:6px;font-size:13px;font-weight:700;transition:opacity .2s"
+         onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        🗓 Agenda de eventos Crescimentum
+        <span style="font-size:11px;opacity:.7">↗</span>
+      </a>
+      <a href="https://sgc.crescimentum.com/dashboard_ocupacao_turmas?periodo_definido=1&termo=&data_de=01%2F09%2F2026&data_ate=&categoria=3&ocupacao=" target="_blank"
+         style="display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;text-decoration:none;padding:12px 24px;border-radius:6px;font-size:13px;font-weight:700;transition:opacity .2s"
+         onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        📋 Ocupação de turmas — Líder do Futuro e Cursos Abertos
+        <span style="font-size:11px;opacity:.7">↗</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleAcc(id) {
+  const item = document.getElementById(id);
+  item.classList.toggle('open');
+}
+</script>
+</body>
+</html>
